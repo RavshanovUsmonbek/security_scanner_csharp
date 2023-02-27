@@ -12,12 +12,14 @@ const CsharpIntegration = {
                 is_default,
                 selected_integration: id,
                 save_intermediates_to,
+                timeout,
             } = this
             return {
                 description,
                 is_default,
                 id,
                 save_intermediates_to,
+                timeout,
             }
         },
     },
@@ -62,6 +64,7 @@ const CsharpIntegration = {
             // toggle: false,
             error: {},
             save_intermediates_to: '/data/intermediates/sast',
+            timeout: 0, 
         })
     },
     template: `
@@ -75,6 +78,17 @@ const CsharpIntegration = {
                 </div>
             </div>
             <div class="form-group">
+                <h9>Timeout</h9>
+                <p>
+                    <h13>Optional</h13>
+                </p>
+                <input type="number" class="form-control form-control-alternative"
+                    placeholder=""
+                    v-model="timeout"
+                    :class="{ 'is-invalid': error.timeout }"
+                >
+                <div class="invalid-feedback">[[ error.timeout ]]</div>
+
                 <h9>Save intermediates to</h9>
                 <p>
                     <h13>Optional</h13>

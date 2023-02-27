@@ -5,6 +5,7 @@ from pydantic import BaseModel, validator
 
 class IntegrationModel(BaseModel):
     save_intermediates_to: Optional[str] = '/data/intermediates/sast'
+    timeout: Optional[int] = 0
 
     def check_connection(self) -> bool:
         try:

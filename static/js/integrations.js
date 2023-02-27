@@ -31,6 +31,17 @@ const CsharpIntegration = {
                        v-model="save_intermediates_to"
                        :class="{ 'is-invalid': error.save_intermediates_to }">
                 <div class="invalid-feedback">[[ error.save_intermediates_to ]]</div>
+
+                <h9>Timeout</h9>
+                <p>
+                    <h13>Optional</h13>
+                </p>
+                <input type="number" class="form-control form-control-alternative"
+                    placeholder=""
+                    v-model="timeout"
+                    :class="{ 'is-invalid': error.timeout }"
+                >
+                <div class="invalid-feedback">[[ error.timeout ]]</div>
             </div>
         </template>
         <template #footer>
@@ -67,6 +78,7 @@ const CsharpIntegration = {
                 is_default,
                 project_id,
                 save_intermediates_to,
+                timeout,
                 status,
             } = this
             return {
@@ -74,6 +86,7 @@ const CsharpIntegration = {
                 is_default,
                 project_id,
                 save_intermediates_to,
+                timeout,
                 status,
             }
         },
@@ -176,6 +189,7 @@ const CsharpIntegration = {
             id: null,
 
             save_intermediates_to: '/data/intermediates/sast',
+            timeout: 0,
 
             pluginName: 'security_scanner_csharp',
             api_base: '/api/v1/integrations/',
