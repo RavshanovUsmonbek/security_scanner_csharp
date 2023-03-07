@@ -1,11 +1,6 @@
-from pylon.core.tools import log, web
-from flask import g
+from pylon.core.tools import web
 
 
-# self.context.slot_manager.register_callback(
-#     f'integrations_{form_data.section}',
-#     form_data.integration_callback
-# )
 class Slot:
     integration_name = 'security_scanner_csharp'
     section_name = 'code_scanners'
